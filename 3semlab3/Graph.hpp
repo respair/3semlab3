@@ -65,8 +65,7 @@ public:
         path->Append(item);
         while (item != start_) {
             if (short_path->Get(item) == INT_MAX) { //no path
-                path = new ArraySequence<T>;
-                return path;
+                return new ArraySequence<T>; // empty: size = 0
             }
             item = ex_path->Get(item);
             path->Prepend(item);
