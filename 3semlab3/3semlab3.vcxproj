@@ -144,6 +144,12 @@
     <ClInclude Include="..\..\lab3sem3\Sequence.hpp" />
     <ClInclude Include="..\..\lab3sem3\test.hpp" />
     <ClInclude Include="..\..\lab3sem3\test_sequence.hpp" />
+    <ClInclude Include="ArraySequence.hpp" />
+    <ClInclude Include="DynamicArray.hpp" />
+    <ClInclude Include="Graph.hpp" />
+    <ClInclude Include="Sequence.hpp" />
+    <ClInclude Include="test.hpp" />
+    <ClInclude Include="test_sequence.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Interface.cpp" />
