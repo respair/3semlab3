@@ -1,14 +1,14 @@
 #pragma once
-#include <iostream>
 #include "ArraySequence.hpp"
 #include "Sequence.hpp"
+#include <iostream>
 using namespace std;
 
 template <class T>
 class Graph {
 private:
     Sequence<T>* graph; // graph - matrix
-    int size_;
+    int size_ = 0;
 public:
     Graph(T* arr, int size) {
         this->graph = new ArraySequence<T>(size * size); //matrix
@@ -32,10 +32,8 @@ public:
             visited->Set(i, false);
         }
         short_path->Set(start_, 0); // initial vertex
-
-        for (int i = 0; i < this->size_; i++) { // from to
-            ex_path->Set(i, start_); // just fill
-        }
+        ex_path->Set(0, start_); // just fill
+        
         for (int i = 0; i < this->size_ - 1; i++) { // start
 
             int min = INT_MAX;
@@ -62,14 +60,14 @@ public:
     Sequence<int>* result_path(Sequence<int>* ex_path, Sequence<T>* short_path, int start_, int end_) {
         Sequence<T>* path = new ArraySequence<T>;
         int item = end_;
-        path->Append(item);
         while (item != start_) {
             if (short_path->Get(item) == INT_MAX) { //no path
-                return new ArraySequence<T>; // empty: size = 0
+                return new ArraySequence<T>;        // empty: size = 0
             }
             item = ex_path->Get(item);
             path->Prepend(item);
         }
+        path->Append(end_);
         return path;
     }
 
@@ -97,9 +95,8 @@ public:
     }
     void PrintMatrix() {
         for (int i = 0; i < this->size_; i++) {
-            for (int j = 0; j < this->size_; j++) {
+            for (int j = 0; j < this->size_; j++)
                 cout << this->graph->Get(j + i * this->size_) << " ";
-            }
             cout << endl;
         }
     }
