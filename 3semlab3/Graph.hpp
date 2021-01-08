@@ -79,7 +79,7 @@ public:
         else {
             T length = 0;
             for (int i = 0; i < path->GetSize() - 1; i++)
-                length += this->graph->Get(path->Get(i + 1) + path->Get(i) * this->size_);
+                length = length + this->graph->Get(path->Get(i + 1) + path->Get(i) * this->size_);
             return length;
         }
     }
