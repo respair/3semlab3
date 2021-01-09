@@ -32,7 +32,7 @@ public:
             visited->Set(i, false);
         }
         short_path->Set(start_, 0); // initial vertex
-        ex_path->Set(0, start_); // just fill
+        ex_path->Set(start_, start_); // just fill
         
         for (int i = 0; i < this->size_ - 1; i++) { // start
 
